@@ -1,9 +1,20 @@
-import { HomeIcon, ListOrderedIcon, LogInIcon, MenuIcon, PercentIcon, ShoppingCartIcon } from "lucide-react";
+"use client";
+
+import {
+    HomeIcon,
+    ListOrderedIcon,
+    LogInIcon,
+    MenuIcon,
+    PercentIcon,
+    ShoppingCartIcon
+} from "lucide-react";
 import { Button } from "./button";
 import { Card } from "./card";
 import { Sheet, SheetContent, SheetHeader, SheetTrigger } from "./sheet";
+import { signIn, signOut, useSession} from "next-auth/react";
 
 const Haeder = () => {
+
   return (
     <Card className="flex items-center justify-between p-[1.85rem]">
         <Sheet>
@@ -17,7 +28,7 @@ const Haeder = () => {
                     Menu                
                 </SheetHeader>
                <div className="mt-3 flex flex-col gap-3">
-               <Button variant="outline" className="w-full justify-start gap-2">
+               <Button onClick={() => signIn("google")} variant="outline" className="w-full justify-start gap-2">
                 <LogInIcon size={16}/>
                 Fazer Login
                </Button>
